@@ -1,1 +1,1 @@
-hello world
+SecretHive Chat Application
