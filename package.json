@@ -17,12 +17,14 @@
   },
   "homepage": "https://github.com/Ath-arv/Year_4th_Major#readme",
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@chakra-ui/react": "^2.8.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "framer-motion": "^10.16.4",
+    "mongoose": "^7.6.3",
     "nodemon": "^3.0.1"
   }
 }
