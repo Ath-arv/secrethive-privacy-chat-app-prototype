@@ -1,6 +1,9 @@
 const express = require("express");
 const { chats } = require("./data/data");
+const connectDB = require("./config/db");
+connectDB();
 
+dotenv.config();
 const app = express();
 app.get("/api/chat",(req,res)=>{
 
