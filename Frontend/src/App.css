@@ -1,7 +1,10 @@
-* {
-    margin: 0.1rem;
-}
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
 
 .App {
-    margin: 0 !important;
+    height: 100vh;
+    display: flex;
+    font-family: 'Work Sans', sans-serif;
+    background-image: url('./background.png');
+    background-size: cover;
+    background-position: center;
 }
