@@ -1,6 +1,18 @@
 const asyncHandler = require('express-async-handler');
 const User = require('../models/userModel');
 const generateToken = require('../config/generateToken');
+
+const allUsers = asyncHandler(async (req, res) => {
+    const keyword = req.query.search    ? {
+        $or: [
+          { name: { $regex: req.query.search, $options: "i" } },
+          { _id: { $regex: req.query.search, $options: "i" } },
+        ],
+      }
+    : {};
+    const users = await User.find(keyword).find({ _id: { $ne: req.user._id } }); //not S
+    res.send(users);
+  });
 const registerUser = asyncHandler (async(req,res) => {
    const{name,password}= req.body;
    const ip_add = req.socket.remoteAddress;
