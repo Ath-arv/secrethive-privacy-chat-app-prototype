@@ -5,7 +5,7 @@ import MyChats from "../components/MyChats";
 import ChatBox from "../components/ChatBox";
 
 const ChatPage = () => {
-  let { user } = ChatState();
+  const { user } = ChatState();
   return (
     <div style={{ width: "100%" }}>
       {user && <SideDrawer />}
