@@ -3,14 +3,13 @@ const User = require('../models/userModel');
 const generateToken = require('../config/generateToken');
 
 const allUsers = asyncHandler(async (req, res) => {
-    const keyword = req.query.search    ? {
+    const keyword = req.query.search ? {
         $or: [
           { name: { $regex: req.query.search, $options: "i" } },
-          { _id: { $regex: req.query.search, $options: "i" } },
+         // { _id: { $regex: req.query.search, $options: "i" } },
         ],
-      }
-    : {};
-    const users = await User.find(keyword).find({ _id: { $ne: req.user._id } }); //not S
+      }: {};
+    const users = await User.find(keyword)//.find({ _id: { $ne: req.user._id } }); //not S
     res.send(users);
   });
 const registerUser = asyncHandler (async(req,res) => {
@@ -67,4 +66,4 @@ const authUser = asyncHandler(async(req,res) =>{
         throw new Error("Invalid Name or Password");
     }
 });
-module.exports = { registerUser , authUser};
+module.exports = { registerUser , authUser,allUsers};
