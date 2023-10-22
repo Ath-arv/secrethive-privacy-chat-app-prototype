@@ -11,7 +11,7 @@ const allUsers = asyncHandler(async (req, res) => {
         ],
       }
     : {};
-  const users = await User.find(keyword); //.find({ _id: { $ne: req.user._id } }); //not S
+  const users = await User.find(keyword).find({ _id: { $ne: req.user._id } }); //not Same user
   res.send(users);
 });
 const registerUser = asyncHandler(async (req, res) => {
