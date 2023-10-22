@@ -10,7 +10,6 @@ const sendMessage = asyncHandler(async (req, res) => {
     sender: req.user_id,
     content: content,
     chat: chatId,
-    contentExpiration: new Date(Date.now() + 86400000),
   };
   try {
     var message = await Message.create(newMessage);
