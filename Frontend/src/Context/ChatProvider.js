@@ -11,7 +11,7 @@ const ChatProvider = ({ children }) => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     setUser(userInfo);
 
-    if (!userInfo) {
+    if (userInfo === undefined) {
       history.push("/");
     }
   }, [history]);

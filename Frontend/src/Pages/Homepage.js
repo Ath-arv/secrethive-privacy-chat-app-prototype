@@ -11,7 +11,7 @@ import {
 import React, { useEffect } from "react";
 import Login from "../components/authentication/Login";
 import Signup from "../components/authentication/Signup";
-import { useHistory } from "react-router-dom/cjs/react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Homepage = () => {
   const history = useHistory();
