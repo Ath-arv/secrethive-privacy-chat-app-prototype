@@ -7,11 +7,11 @@ const allUsers = asyncHandler(async (req, res) => {
     ? {
         $or: [
           { name: { $regex: req.query.search, $options: "i" } },
-          { _id: { $regex: req.query.search, $options: "i" } },
+          // { _id: { $regex: req.query.search, $options: "i" } },
         ],
       }
     : {};
-  const users = await User.find(keyword).find({ _id: { $ne: req.user._id } }); //not S
+  const users = await User.find(keyword); //.find({ _id: { $ne: req.user._id } }); //not S
   res.send(users);
 });
 const registerUser = asyncHandler(async (req, res) => {
@@ -50,6 +50,7 @@ const registerUser = asyncHandler(async (req, res) => {
 const authUser = asyncHandler(async (req, res) => {
   const { name, password } = req.body;
   const user = await User.findOne({ name });
+
   if (user && (await user.matchPassword(password))) {
     res.json({
       _id: user._id,
@@ -62,4 +63,4 @@ const authUser = asyncHandler(async (req, res) => {
     throw new Error("Invalid Name or Password");
   }
 });
-module.exports = { registerUser, authUser };
+module.exports = { registerUser, authUser, allUsers };
